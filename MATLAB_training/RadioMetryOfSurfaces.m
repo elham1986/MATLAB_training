@@ -40,21 +40,22 @@ for i=1:D
             Coi=cos(theta_i);
             CoP=cos(theta_iprim);
             CP=cot(theta_iprim);
+            Dh=exp(-(Th^2)/2)/2*pi*Nh^3;
+            Atheta=[sqrt(2)*exp(-Ci^2/2)/sqrt(pi)*Ci-erfc(Ci/sqrt(2))]/2;
+            AthetaR=[sqrt(2)*exp(-Cr^2/2)/sqrt(pi)*Cr-erfc(Cr/sqrt(2))]/2;
+            if (CoP > 0)
+           gTheta(i,j)=1/ Atheta+1;
+           gThetaR(i,j)=1/ AthetaR+1;
+           G(i,j)=(1/ Atheta+1)*(1/ AthetaR+1);
+        else
+            gTheta(i,j)=0;
+            gThetaR(i,j)=0;
+        end
             %C=2*Li*vr-vg;
             %L(theta_i,theta_r,theta_g) = C^n + Li
             I(i,j)=mean(dot(L,N));
         else
             I(i,j)=0;
-        end
-        Dh=exp(-(Th^2)/2)/2*pi*Nh^3;
-        Atheta=[sqrt(2)*exp(-Ci^2/2)/sqrt(pi)*Ci-erfc(Ci/sqrt(2))]/2;
-        AthetaR=[sqrt(2)*exp(-Cr^2/2)/sqrt(pi)*Cr-erfc(Cr/sqrt(2))]/2;
-        if (Cop > 0)
-           gTheta(i,j)=1/ Atheta+1;
-           gThetaR(i,j)=1/ AthetaR+1;
-        else
-            gTheta(i,j)=0;
-            gThetaR(i,j)=0;
         end
     end
 end
