@@ -94,8 +94,8 @@ for i=1:D
             
         else
             I(i,j)=0;
-            Imetal(i,j)=0;
-            Iglass(i,j)=0;
+            Imetal(i,j)=0.5;
+            Iglass(i,j)=0.5;
         end
     end
 end
@@ -104,10 +104,23 @@ end
 %sphere(I,'b')
 figure(1)
 imshow(I)
-title('Lambertian Ball');
+
 figure(2)
-imshow(Imetal)
-title('Metal Ball');
+imagesc(I)
+title('Lambertian Ball');
+
 figure(3)
+imshow(Imetal)
+
+figure(4)
+imagesc(Imetal)
+title('Metal Ball');
+
+figure(5)
+imagesc(Iglass)
+
+figure(6)
 imshow(Iglass)
+%scatter3(Iglass)
+%colormap(Iglass)
 title('Glass Ball');
