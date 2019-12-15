@@ -1,2 +1,0 @@
-# MATLAB_training
-Radiometry
